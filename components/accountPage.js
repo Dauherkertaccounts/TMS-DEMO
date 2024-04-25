@@ -216,7 +216,7 @@ if (deleteButton) {
       // Delete the user's account
       deleteUser(user).then(() => {
         setTimeout(function() {
-          window.location.pathname = urlLang + "/signin-ptgp"; 
+          window.location.pathname = urlLang + "/signin-bho"; 
         }, 1500);
 
         toastr.success('User account deleted');

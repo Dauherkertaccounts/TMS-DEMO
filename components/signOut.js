@@ -5,7 +5,7 @@ import toastr from 'toastr';
 // Handle signOut
 /*=======================================================================================================================================================
   * Manages the user sign-out action. It uses the signOut function from Firebase Authentication to sign out the current user. Redirects the user to the
-  * "/en/signin-ptgp" page after signing out.
+  * "/en/signin-bho" page after signing out.
 ========================================================================================================================================================*/
 
 function handleSignOut() {

@@ -2,7 +2,7 @@
  * Dev constants
  ====================================================================================================================================*/
 
- const PSNAME = '-ptgp'; // Project slug name
+ const PSNAME = '-bho'; // Project slug name
  export const DEVEMAIL = ['juan.torres@dauherkert.de', 'niklas.diet@dauherkert.de']; // Dev admin email ['juan.torres@dauherkert.de', 'niklas.diet@dauherkert.de']
 
  /* Authorized event dates */
@@ -16,7 +16,7 @@
  /* Environment Domain */
  /* needs to be changed manually on register_de_email.html & register_en_email.html & storage.cors.json */
  /* TODO: Check if it can be centralized also in the above mentioned pages. */
- export const URLENV = 'https://credentials.porsche-tennis.com/';
+ export const URLENV = 'https://bho-tms-2024.webflow.io/';
  
  /* URL Pages */
  export const URLACCOUNT = '/account';
@@ -25,8 +25,8 @@
  export const URLSIGNUP = '/signup' + PSNAME;
 
  /* Admin create user default dates */
- export const SUPPLIERSTARTDATE = '04-10-2024';
- export const SUPPLIERENDDATE = '04-21-2024';
+ export const SUPPLIERSTARTDATE = '06-19-2024';
+ export const SUPPLIERENDDATE = '06-29-2024';
 
  /**/
  export const DEFAULTCOMPANYID = 'vbIh3G2eLIOVEvXmKDKf';
@@ -46,7 +46,7 @@
  
  /* Email Templates */
  export const URLEMAILTEMPLATES = {
-   URLEMAILFOLDER: 'https://raw.githubusercontent.com/dauHerkert/Main_TMS/main/mails_templates/',
+   URLEMAILFOLDER: 'https://raw.githubusercontent.com/dauHerkert/BHO-TMS/main/mails_templates/',
    URLREGISTER_EN: 'register_en_email.html',
    URLREGISTER_DE: 'register_de_email.html',
    URLREGISTRATIONLINK_EN: 'registration_link_en_email.html',

@@ -235,9 +235,9 @@ function checkUrlParameter() {
   // User is NOT signed in
   if (user == false) {
     if (signoutBtn) {signoutBtn.style.display = 'none';}
-    if (url.substring(url.lastIndexOf('/') + 1) == 'signup-ptgp') {
+    if (url.substring(url.lastIndexOf('/') + 1) == 'signup-bho') {
       signUpPage();
-    } else if (url.substring(url.lastIndexOf('/') + 1) == 'signin-ptgp') {
+    } else if (url.substring(url.lastIndexOf('/') + 1) == 'signin-bho') {
       signInPage();
     } else if (url.substring(url.lastIndexOf('/') + 1) == 'press-form') {
       pagePress();
@@ -472,7 +472,7 @@ export async function changeAdminTypeTitle(user) {
  ====================================================================================================================================*/
 /*
 if(window.location.href == URLENV){
-  window.location.href = URLENV + '/en/signin-ptgp' 
+  window.location.href = URLENV + '/en/signin-bho' 
 }
 */
 
