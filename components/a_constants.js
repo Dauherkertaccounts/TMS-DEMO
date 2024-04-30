@@ -7,10 +7,10 @@
 
  /* Authorized event dates */
  export const EVENTDATES = {
-  MINDATE_DAY: 30,
-  MINDATE_MONTH: 1,
-  MAXDATE_DAY: 30,
-  MAXDATE_MONTH: 4
+  MINDATE_DAY: 19,
+  MINDATE_MONTH: 6,
+  MAXDATE_DAY: 29,
+  MAXDATE_MONTH: 6
  }
  
  /* Environment Domain */

@@ -7,12 +7,12 @@ import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'fire
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDuWqqoSEfawmsdJNQzIDKk6lfvEKAubmA",
-  authDomain: "porsche-tms.firebaseapp.com",
-  projectId: "porsche-tms",
-  storageBucket: "porsche-tms.appspot.com",
-  messagingSenderId: "267742806983",
-  appId: "1:267742806983:web:7e8a7ed147f052676b8fe2"
+  apiKey: "AIzaSyDBWCJjdr-f7KiTKj9AEei0ZaE15Wh_nFI",
+  authDomain: "bho-accreditation.firebaseapp.com",
+  projectId: "bho-accreditation",
+  storageBucket: "bho-accreditation.appspot.com",
+  messagingSenderId: "309231750705",
+  appId: "1:309231750705:web:f6e7dcc9a065eb5684cf10"
 };
 
 // Initialize Firebase
