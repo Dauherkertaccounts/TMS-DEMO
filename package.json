@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/dauHerkert/Main_TMS.git"
+    "url": "git+https://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@github.com/dauHerkert/BHO-TMS.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dauHerkert/Main_TMS/issues"
+    "url": "https://github.com/dauHerkert/BHO-TMS/issues"
   },
-  "homepage": "https://github.com/dauHerkert/Main_TMS#readme",
+  "homepage": "https://github.com/dauHerkert/BHO-TMS#readme",
   "devDependencies": {
     "css-loader": "^6.8.1",
     "jquery": "^3.7.0",
