@@ -202,6 +202,7 @@ export async function pageCompaniesTable(user){
   let company_id = document.getElementById('company_id');
   let update_company = document.getElementById('update_company');
   let newCompanyProfile = document.getElementById('newCompanyProfile');
+  let newCompanyMeals = document.getElementById('newCompanyMeals');
   let selectedNewZonesString;
 
   $('#newCompanyZones').on('change', function () {
@@ -217,7 +218,8 @@ export async function pageCompaniesTable(user){
       setDoc(companyRef, {
         company_name: escapeHtml(update_company.value),
         company_profile: newCompanyProfile.value,
-        company_zones: selectedNewZonesString
+        company_zones: selectedNewZonesString,
+        company_meals: (String(newCompanyMeals.value).toLowerCase() === 'true')
       }, { merge: true })
       .then(() => {
         toastr.success('Company info has been successfully updated');
