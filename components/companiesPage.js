@@ -185,7 +185,7 @@ export async function pageCompaniesTable(user){
         let company = doc.data();
         let company_link_en = `${URLENV}en${URLSIGNUP}?company=${doc.id}`;
         let company_link_de = `${URLENV}de${URLSIGNUP}?company=${doc.id}`; 
-        data.push({companyLink: company_link_en,companyLinkDe: company_link_de, company_profile: company.company_profile,  id:doc.id, userHead: company.user_head, company: company.company_name, zone: company.company_zones});
+        data.push({companyLink: company_link_en,companyLinkDe: company_link_de, company_meals: company.company_meals, company_profile: company.company_profile,  id:doc.id, userHead: company.user_head, company: company.company_name, zone: company.company_zones});
         if (adminInfo.super_admin) {
           companies_table.setData(data);
         } else {
