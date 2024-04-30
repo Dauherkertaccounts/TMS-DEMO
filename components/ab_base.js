@@ -387,6 +387,7 @@ window.addEventListener('load', function(){
     currentLang = storedLang;
   }
 
+  /*
   document.getElementById("langBtn").addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -397,6 +398,7 @@ window.addEventListener('load', function(){
     }
     window.location.href = this.href; 
   });
+  */
   
   updateLinks();
 });
@@ -508,7 +510,7 @@ export function escapeHtml(string) {
 }
 
 export function escapeHtmlLess(string) {
-  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+  return String(string).replace(/[&<>"'`=/]/g, function (s) {
     return entityMapLess[s];
   });
 }
