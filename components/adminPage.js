@@ -298,7 +298,7 @@ export async function pageAdmin(user) {
               } else if (value === "Printed") {
                 label = "Gedruckt";
                 color = "#2980B9";
-              } else if (value === "NoStatus") {
+              } else if (value === "NoStatus" || value === "") {
                 label = "No Status";
                 color = "#808080";
               } else if (value === "OldData") {
@@ -318,7 +318,7 @@ export async function pageAdmin(user) {
               } else if (value === "Printed") {
                 label = "Printed";
                 color = "#2980B9";
-              } else if (value === "NoStatus") {
+              } else if (value === "NoStatus" || value === "") {
                 label = "No Status";
                 color = "#808080";
               } else if (value === "OldData") {
