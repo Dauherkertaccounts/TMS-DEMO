@@ -238,6 +238,7 @@ export async function pageCompaniesTable(user){
   let create_company_form = document.getElementById('create_company_form');
   let new_company_name = document.getElementById('newCompanyName');
   let new_company_profile = document.getElementById('companyProfile');
+  let new_company_meals = document.getElementById('companyMeals');
   let new_company_type = document.getElementById('company_type');
   let companyZone = document.getElementById('companyZone');
   let selectedValuesString;
@@ -255,6 +256,7 @@ export async function pageCompaniesTable(user){
         company_name: escapeHtml(new_company_name.value),
         company_zones: selectedValuesString,
         company_profile: new_company_profile.value,
+        company_meals: (String(new_company_meals.value).toLowerCase() === 'true'),
         company_type: '',
         user_head: ''
       });
