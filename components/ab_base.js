@@ -510,7 +510,7 @@ export function escapeHtml(string) {
 }
 
 export function escapeHtmlLess(string) {
-  return String(string).replace(/[&<>"'`=/]/g, function (s) {
+  return String(string).replace(/[&<>"'`=]/g, function (s) {
     return entityMapLess[s];
   });
 }
