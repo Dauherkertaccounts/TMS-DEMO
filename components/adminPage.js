@@ -158,7 +158,9 @@ export async function pageAdmin(user) {
     "Ok": "OK",
     "Declined": "DECLINED",
     "Pending": "PENDING",
-    "Printed": "PRINTED"
+    "Printed": "PRINTED",
+    "NoStatus": "NoStatus",
+    "OldData": "OldData"
   };
 
   let typeOptions = {
@@ -179,7 +181,9 @@ export async function pageAdmin(user) {
       "Ok": "OK",
       "Declined": "DECLINED",
       "Pending": "PENDING",
-      "Printed": "PRINTED"
+      "Printed": "PRINTED",
+      "NoStatus": "NoStatus",
+      "OldData": "OldData"
     };
 
     typeOptions = {
@@ -294,6 +298,12 @@ export async function pageAdmin(user) {
               } else if (value === "Printed") {
                 label = "Gedruckt";
                 color = "#2980B9";
+              } else if (value === "NoStatus") {
+                label = "No Status";
+                color = "#808080";
+              } else if (value === "OldData") {
+                label = "Old Data";
+                color = "#2B2B2B";
               }
             } else {
               if (value === "Ok") {
@@ -308,6 +318,12 @@ export async function pageAdmin(user) {
               } else if (value === "Printed") {
                 label = "Printed";
                 color = "#2980B9";
+              } else if (value === "NoStatus") {
+                label = "No Status";
+                color = "#808080";
+              } else if (value === "OldData") {
+                label = "Old Data";
+                color = "#2B2B2B";
               }
             }
             return '<div style="display:flex;align-items:center;justify-content:flex-start"><div style="width:12px;height:12px;border-radius:50%;background-color:' + color + ';margin-right:0px;"></div><div style="margin-left:6px;">' + label + '</div></div>';
