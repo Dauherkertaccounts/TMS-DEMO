@@ -113,6 +113,7 @@ export async function pageCompaniesTable(user){
       }},
       {title:"ID", field:"id", sorter:"string", width:0, cssClass:"companyID hidden-column"},
       {title:"Company Profile", field:"company_profile", sorter:"string", width:0, cssClass:"companyProfile hidden-column"},
+      {title:"Company Meal", field:"company_meals", sorter:"string", width:0, cssClass:"companyMeals hidden-column"},
       {title: companyLabel, field:"company", sorter:"string", width:250, cssClass:"companyName first_column", headerFilter: "list"},
       {title: companyZoneLabel, field:"zone", sorter:"string", width:250, cssClass:"companyZone large_columns", headerFilter: "list"},
       {title:"User Head", field:"userHead", sorter:"string", width:0, cssClass:"userHead hidden-column"},
