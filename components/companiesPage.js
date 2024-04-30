@@ -216,7 +216,7 @@ export async function pageCompaniesTable(user){
     if (adminInfo.super_admin && company_id != null) {
       const companyRef = doc(db, 'companies', company_id.value);
       setDoc(companyRef, {
-        company_name: escapeHtml(update_company.value),
+        company_name: escapeHtmlLess(update_company.value),
         company_profile: newCompanyProfile.value,
         company_zones: selectedNewZonesString,
         company_meals: (String(newCompanyMeals.value).toLowerCase() === 'true')
@@ -253,7 +253,7 @@ export async function pageCompaniesTable(user){
   async function createCompany() {
     try {
       const docRef = await addDoc(collection(db, "companies"), {
-        company_name: escapeHtml(new_company_name.value),
+        company_name: escapeHtmlLess(new_company_name.value),
         company_zones: selectedValuesString,
         company_profile: new_company_profile.value,
         company_meals: (String(new_company_meals.value).toLowerCase() === 'true'),

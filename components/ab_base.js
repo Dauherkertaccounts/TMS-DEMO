@@ -491,8 +491,24 @@ var entityMap = {
   '=': '&#x3D;'
 };
 
+var entityMapLess = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
 export function escapeHtml(string) {
   return String(string).replace(/[&<>"'`=\/]/g, function (s) {
     return entityMap[s];
+  });
+}
+
+export function escapeHtmlLess(string) {
+  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    return entityMapLess[s];
   });
 }
