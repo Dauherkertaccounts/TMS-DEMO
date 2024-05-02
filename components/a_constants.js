@@ -35,14 +35,14 @@
  /* URL Webflow Assets for Images and Icons */
  /* must be changed manually in each email template, where the respective asset is used */
  /* TODO: Check if it can be centralized also in the above mentioned pages. */
- export const URLASSETS = 'https://uploads-ssl.webflow.com/6453e5fbbb9ef87f5979b611/';
+ export const URLASSETS = 'https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/';
  /* ASSETS - Icons */
  export const ICON_LOGOUT = '6453e5fbbb9ef8cc1279b64a_logout_icon.svg';
- export const ICON_PENCIL = '6462983e76b4d1ee3ac14cd1_pencil-alt.png';
- export const ICON_TRASH = '6462e184b518709fa4ff5fe6_trash.png';
- export const ICON_SENDMAIL = '6468108d231ed90e8f74b109_Vector.png'; // Send Email icon
+ export const ICON_PENCIL = '66232f41bf2efc8ff7b5a002_pencil-alt.png';
+ export const ICON_TRASH = '66232f41bf2efc8ff7b5a009_trash.png';
+ export const ICON_SENDMAIL = '66232f41bf2efc8ff7b5a03a_Vector.png'; // Send Email icon
  /* ASSETS - Images */
- export const IMAGE_PROFILE = '6453e5fbbb9ef8507179b64c_profile%20picture.png'; // FallBack Profile Picture
+ export const IMAGE_PROFILE = '662bcd65e0220dd29bf8e481_avatar.png'; // FallBack Profile Picture
  
  /* Email Templates */
  export const URLEMAILTEMPLATES = {
@@ -111,8 +111,8 @@
   // export const PDF_SC_2_EN = 'https://assets.website-files.com/63388d26d610dba24046d36b/641465fb036e3514624b5d8a_PTGP230317_Kurzhinweise%20Arbeitsschutz.pdf';
 
  /* ASSETS - Images - used in email templates */
- export const firstImageURL = "https://uploads-ssl.webflow.com/649471d58c4292fde7b0bd0a/65ce5060a1ea65c516b3a99a_PTGP-2024_Logo_Datum_black.png";
- export const firstImageStyle = "max-height: 100px;width: 90%;max-width: 220px;";
+ export const firstImageURL = "https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/6633b73980bdb9d20fa3b048_BHO-2024_Combined_Logo_RGB_Solarwatt_500.svg";
+ export const firstImageStyle = "max-height: 100px;width: 90%;";
 
  export const secondImageURL = "https://uploads-ssl.webflow.com/649471d58c4292fde7b0bd0a/65ce506132780f0150f70fc7_WTA.png";
  export const secondImageStyle = "max-height: 100px;width: 70%;max-width: 150px;";
