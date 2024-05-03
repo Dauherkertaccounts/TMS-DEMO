@@ -111,7 +111,7 @@
   // export const PDF_SC_2_EN = 'https://assets.website-files.com/63388d26d610dba24046d36b/641465fb036e3514624b5d8a_PTGP230317_Kurzhinweise%20Arbeitsschutz.pdf';
 
  /* ASSETS - Images - used in email templates */
- export const firstImageURL = "https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/6633b73980bdb9d20fa3b048_BHO-2024_Combined_Logo_RGB_Solarwatt_500.svg";
+ export const firstImageURL = "https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/663432fe5b6269a018cffed2_BHO-2024_Combined_Logo_RGB_Solarwatt_500%201.png";
  export const firstImageStyle = "max-height: 100px;width: 90%;";
 
  export const secondImageURL = "https://uploads-ssl.webflow.com/649471d58c4292fde7b0bd0a/65ce506132780f0150f70fc7_WTA.png";
