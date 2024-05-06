@@ -52,12 +52,12 @@ async function addSupplierInfo(e, user) {
 
   let storedLang = localStorage.getItem('language');
   //Supplier form submited - DE
-  let supplier_form_confirmation_subject = 'Vielen Dank für Ihre Anmeldung';
+  let supplier_form_confirmation_subject = 'Vielen Dank für Ihre Registrierung';
   let supplier_form_confirmation_url = URLEMAILTEMPLATES.URLEMAILFOLDER + URLEMAILTEMPLATES.URLSUPPLIERFORMCONFIRM_DE;
 
   if (storedLang && storedLang === 'de') {
     //Supplier form submited - EN
-    supplier_form_confirmation_subject = 'Thanks for Applicating';
+    supplier_form_confirmation_subject = 'Thanks for your registration';
     supplier_form_confirmation_url = URLEMAILTEMPLATES.URLEMAILFOLDER + URLEMAILTEMPLATES.URLSUPPLIERFORMCONFIRM_EN;
   }
 

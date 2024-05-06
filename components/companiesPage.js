@@ -1,4 +1,4 @@
-import { URLENV, URLSIGNUP, URLEMAILTEMPLATES, URLASSETS, ICON_PENCIL, ICON_TRASH, ICON_SENDMAIL, firstImageURL, firstImageStyle, secondImageURL, secondImageStyle } from './a_constants';
+import { URLENV, URLSIGNUP, URLSIGNIN, URLEMAILTEMPLATES, URLASSETS, ICON_PENCIL, ICON_TRASH, ICON_SENDMAIL, firstImageURL, firstImageStyle, secondImageURL, secondImageStyle } from './a_constants';
 import { collection, doc, getDocs, getDoc, setDoc, addDoc, updateDoc, query, where, db, storage, user } from './a_firebaseConfig';
 import { getUserInfo, getAdminInfo, createOptions, changeAdminTypeTitle, escapeHtml, escapeHtmlLess } from './ab_base';
 import toastr from 'toastr';
@@ -505,16 +505,18 @@ export async function pageCompaniesTable(user){
 
       let storedLang = localStorage.getItem('language');
       //Supplier form submited - EN
-      let registration_link_email_subject = 'Accreditation Porsche Tennis Grand Prix';
+      let registration_link_email_subject = 'Accreditation Bad Homburg Open 2024';
       let registration_link_email_url = URLEMAILTEMPLATES.URLEMAILFOLDER + URLEMAILTEMPLATES.URLREGISTRATIONLINK_EN;
       let notification_UI_correct = 'Email has been successfully sent';
       let notification_UI_error = 'Error sending email: ';
 
       let registrationLink = `${company_link.value}`;
+      let login_link_en = `${URLENV}en${URLSIGNIN}`;
+      let login_link_de = `${URLENV}de${URLSIGNIN}`;
       
       if (storedLang && storedLang === 'de') {
         //Supplier form submited - DE
-        registration_link_email_subject = 'Akkreditierung Porsche Tennis Grand Prix';
+        registration_link_email_subject = 'Akkreditierung Bad Homburg Open 2024';
         registration_link_email_url = URLEMAILTEMPLATES.URLEMAILFOLDER + URLEMAILTEMPLATES.URLREGISTRATIONLINK_DE;
         notification_UI_correct = 'E-Mail wurde erfolgreich versendet';
         notification_UI_error = 'Error beim versenden der E-Mail: ';
@@ -525,6 +527,8 @@ export async function pageCompaniesTable(user){
         try {
           const html = await fetch(registration_link_email_url)
             .then(response => response.text())
+            .then(html => html.replace('${loginLinkEn}', login_link_en))
+            .then(html => html.replace('${loginLinkDe}', login_link_de))
             .then(html => html.replace('${registrationLinkEn}', company_link.value))
             .then(html => html.replace('${registrationLinkDe}', company_link_de.value))
             .then(html => html.replace('${firstImageURL}', firstImageURL))
