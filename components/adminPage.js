@@ -753,9 +753,14 @@ export async function pageAdmin(user) {
 
   const updatedPicture = document.getElementById('updated_picture');
   const hidden_input = document.getElementById('hidden_input2');
+  const create_hidden_input = document.getElementById('create_hidden_input2');
+  const update_picture_modal = document.getElementById('update_picture_modal');
+  const create_picture_modal = document.getElementById('create_picture_modal');
   const update_photo_modal = document.getElementById('update_photo_modal');
   let cropper = null;
+  let cropperCreate = null;
   let isPhotoUploaded = false;
+  let isPhotoUploadedCreate = false;
 
   if (updatedPicture) {
     updatedPicture.addEventListener('change', function handleProfilePic(e) {
@@ -916,6 +921,118 @@ export async function pageAdmin(user) {
       ev.preventDefault();
       ev.stopPropagation();
       updateProfilePic2(ev, user);
+    }, true);
+  }
+
+  // -------------------------- Create User
+
+  function createProfilePic2(e, user) {
+    e.preventDefault();
+    e.stopPropagation();
+    //let update_img_user_id = document.getElementById('update_img_user_id');
+
+    if (cropperCreate || isPhotoUploadedCreate) {
+      const canvas = cropperCreate.getCroppedCanvas();
+      const metadata = {
+        contentType: 'image/png',
+      };
+      canvas.toBlob((blob) => {
+        const storageRef = ref(storage, 'profiles/' + '123');
+        uploadBytes(storageRef, blob, metadata)
+          .then((snapshot) => {
+            toastr.success('You have updated the profile picture successfully');
+            setTimeout(function () {
+              update_picture_modal.style.display = 'none';
+            }, 1000);
+          })
+          .catch((err) => {
+            console.log('error uploading file', err);
+            toastr.error('There was an error uploading the file');
+          });
+          console.log(isPhotoUploadedCreate)
+      });
+    } else if (isPhotoUploadedCreate != true) {
+      toastr.error('Please upload your profile picture');
+    }
+  }
+  
+  // Start the webcam with WebcamJS
+  function startWebcamCreate() {
+    // Destroy Cropper if exists
+    if (cropperCreate) {
+      cropperCreate.destroy();
+      cropperCreate = null;
+    }
+    Webcam.set({
+      width: 320,
+      height: 240,
+      dest_width: 640,
+      dest_height: 480,
+      image_format: 'png',
+    });
+
+    // Start camera
+    Webcam.attach('#camera_create');
+  }
+
+  // Take a picture with the webcam and open CropperJS
+  function takeSnapshotAndOpenCropperCreate() {
+    Webcam.snap(function(dataURL) {
+      // Initialize CropperJS with the captured image
+      const image = document.getElementById('create_image_cropper2');
+      image.src = dataURL;
+      cropperCreate = new Cropper(image, {
+        aspectRatio: 3 / 4,
+        width: 200,
+        height: 200,
+        viewMode: 1,
+        autoCropArea: 0.7,
+        responsive: true,
+        crop(event) {
+          // Get the cropped canvas data as a data URL
+          const canvas = cropperCreate.getCroppedCanvas();
+          const dataURL = canvas.toDataURL();
+          // Set the data URL as the value of the hidden input field
+          create_hidden_input.value = dataURL;
+        },
+      });
+      // Set the flag for successful photo upload
+      isPhotoUploadedCreate = true;
+      // Turn off the camera
+      Webcam.reset();
+    });
+  }
+
+  //Close the take picture modal. Create User
+  var webcam_modal_create = document.getElementById("take_picture_modal_create");
+  var webcam_create_close_button = document.getElementById("webcam_create_close_modal_button");
+
+  if (webcam_create_close_button || webcam_modal_create) {
+    webcam_create_close_button.onclick=function() {
+      webcam_modal_create.style.display="none";
+      Webcam.reset();
+    }
+  }
+
+  // Add the event listener to the button to start the webcam and take the photo. Create User
+  document.getElementById('create_snapshotButton').addEventListener('click', function() {
+    // Start the webcam
+    startWebcamCreate();
+    webcam_modal_create.style.display = 'flex';
+  });
+
+  // Add the button to take a photo and open CropperJS.
+  const snapshotBtnCreate = document.getElementById('take_photo_create');
+  snapshotBtnCreate.addEventListener('click', function() {
+    takeSnapshotAndOpenCropperCreate();
+    webcam_modal_create.style.display = 'none';
+  });
+
+  if (create_picture_modal !== null) {
+    create_picture_modal.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      createProfilePic2(ev, user);
     }, true);
   }
 
