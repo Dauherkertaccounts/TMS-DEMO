@@ -994,7 +994,7 @@ export async function pageAdmin(user) {
   // Add the button to take a photo and open CropperJS.
   const snapshotBtnCreate = document.getElementById('take_photo_create');
   snapshotBtnCreate.addEventListener('click', function() {
-    takeSnapshotAndOpenCropperCreate();
+    //takeSnapshotAndOpenCropperCreate();
     webcam_modal_create.style.display = 'none';
 
     Webcam.snap(function(dataURL) {
