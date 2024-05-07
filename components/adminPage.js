@@ -1660,7 +1660,7 @@ export async function pageAdmin(user) {
   }
 
   async function createUser(user) {
-    if (!upload_cropper || !cropperCreate) {
+    if (!upload_cropper && !cropperCreate) {
       toastr.error('Please select an image to upload');
       return;
     }
