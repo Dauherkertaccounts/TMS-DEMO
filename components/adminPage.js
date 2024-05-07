@@ -999,7 +999,7 @@ export async function pageAdmin(user) {
 
     Webcam.snap(function(dataURL) {
       // Initialize CropperJS with the captured image
-      const image = document.getElementById('image_cropper');
+      const image = document.getElementById('image_cropper_webcam');
       image.src = dataURL;
       cropperCreate = new Cropper(image, {
         aspectRatio: 3 / 4,
