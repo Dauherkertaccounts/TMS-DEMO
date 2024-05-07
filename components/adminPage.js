@@ -925,36 +925,6 @@ export async function pageAdmin(user) {
   }
 
   // -------------------------- Create User
-
-  function createProfilePic2(e, user) {
-    e.preventDefault();
-    e.stopPropagation();
-    //let update_img_user_id = document.getElementById('update_img_user_id');
-
-    if (cropperCreate || isPhotoUploadedCreate) {
-      const canvas = cropperCreate.getCroppedCanvas();
-      const metadata = {
-        contentType: 'image/png',
-      };
-      canvas.toBlob((blob) => {
-        const storageRef = ref(storage, 'profiles/' + '123');
-        uploadBytes(storageRef, blob, metadata)
-          .then((snapshot) => {
-            toastr.success('You have updated the profile picture successfully');
-            setTimeout(function () {
-              update_picture_modal.style.display = 'none';
-            }, 1000);
-          })
-          .catch((err) => {
-            console.log('error uploading file', err);
-            toastr.error('There was an error uploading the file');
-          });
-          console.log(isPhotoUploadedCreate)
-      });
-    } else if (isPhotoUploadedCreate != true) {
-      toastr.error('Please upload your profile picture');
-    }
-  }
   
   // Start the webcam with WebcamJS
   function startWebcamCreate() {
@@ -1026,15 +996,30 @@ export async function pageAdmin(user) {
   snapshotBtnCreate.addEventListener('click', function() {
     takeSnapshotAndOpenCropperCreate();
     webcam_modal_create.style.display = 'none';
-  });
 
-  if (create_picture_modal !== null) {
-    create_picture_modal.addEventListener('submit', function (ev) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      createProfilePic2(ev, user);
-    }, true);
-  }
+    Webcam.snap(function(dataURL) {
+      // Initialize CropperJS with the captured image
+      const image = document.getElementById('image_cropper');
+      image.src = dataURL;
+      cropperCreate = new Cropper(image, {
+        aspectRatio: 3 / 4,
+        width: 200,
+        height: 200,
+        viewMode: 1,
+        autoCropArea: 0.7,
+        responsive: true,
+        crop(event) {
+          // Get the cropped canvas data as a data URL
+          const canvas = cropperCreate.getCroppedCanvas();
+          const dataURL = canvas.toDataURL();
+          // Set the data URL as the value of the hidden input field
+          document.getElementById('upload_picture').value = dataURL;
+        },
+      });
+      // Turn off the camera
+      Webcam.reset();
+    });
+  });
 
 /*==================================================================================================================================================================
 * This function handles the form submission event for updating a user's information. It prevents the default form submission behavior and stops event propagation.
