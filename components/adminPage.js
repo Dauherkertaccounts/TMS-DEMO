@@ -14,6 +14,8 @@ $('#new_user_company, #createUserZones, #userCompany, #userZones').select2({clos
 
 let storedLang = localStorage.getItem("language");
 
+let picSource = '';
+
 //TODO: Make a centralized function for the email templates, with which to receive depending on the action (Edit a user - Bulk editing) the necessary variables and return the correct values.
 
 /*=============================================================================================================================================================
@@ -998,7 +1000,6 @@ export async function pageAdmin(user) {
     webcam_modal_create.style.display = 'none';
 
     Webcam.snap(function(dataURL) {
-      console.log('>>>>>> ', dataURL);
       // Initialize CropperJS with the captured image
       const image = document.getElementById('image_cropper_webcam');
       image.src = dataURL;
@@ -1660,6 +1661,10 @@ export async function pageAdmin(user) {
   }
 
   async function createUser(user) {
+    if (upload_cropper) { picSource = 'upload'}
+    if (cropperCreate) { picSource = 'webcam'}
+    console.log('>>>> ', picSource);
+
     if (!upload_cropper && !cropperCreate) {
       toastr.error('Please select an image to upload');
       return;
@@ -1708,7 +1713,7 @@ export async function pageAdmin(user) {
         user_deleted: false
       })
         .then((companyRef) => {
-          userUploadImage(companyRef.id);
+          userUploadImage(companyRef.id, picSource);
           if (storedLang && storedLang === 'de') {
             toastr.success('Benutzer wurde erfolgreich erstellt');
           } else {
@@ -1770,10 +1775,10 @@ export async function pageAdmin(user) {
     });
   }
 
-  function userUploadImage(userID) {
-    if (upload_cropper) {
+  function userUploadImage(userID, picSource) {
+    if (picSource == 'upload') {
       const canvas = upload_cropper.getCroppedCanvas();
-    } else if (cropperCreate) {
+    } else if (picSource == 'webcam') {
       const canvas = cropperCreate.getCroppedCanvas();
     }
     const metadata = {
