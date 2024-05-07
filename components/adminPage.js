@@ -998,6 +998,7 @@ export async function pageAdmin(user) {
     webcam_modal_create.style.display = 'none';
 
     Webcam.snap(function(dataURL) {
+      console.log('>>>>>> ', dataURL);
       // Initialize CropperJS with the captured image
       const image = document.getElementById('image_cropper_webcam');
       image.src = dataURL;
