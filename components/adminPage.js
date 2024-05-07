@@ -1776,12 +1776,13 @@ export async function pageAdmin(user) {
   }
 
   function userUploadImage(userID, picSource) {
-    if (picSource == 'upload') {
-      const canvas = upload_cropper.getCroppedCanvas();
-    } else if (picSource == 'webcam') {
-      const canvas = cropperCreate.getCroppedCanvas();
+    let canvas;
+    if (picSource === 'upload') {
+      canvas = upload_cropper.getCroppedCanvas();
+    } else if (picSource === 'webcam') {
+      canvas = cropperCreate.getCroppedCanvas();
     }
-    console.log('>>>>2 ', picSource);
+    console.log('>>>>2 ', picSource, ' - ', (picSource === 'webcam'));
     const metadata = {
       contentType: 'image/png'
     };
