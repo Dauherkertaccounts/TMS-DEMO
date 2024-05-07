@@ -500,6 +500,7 @@ export async function pageAdmin(user) {
 
     const companyAdmin = adminInfo.company_admin;
     const basicAdmin = adminInfo.basic_admin;
+    const superAdmin = adminInfo.super_admin;
     const adminCompanyName = userInfo.user_company;
     console.log('admin:', adminCompanyName);
     let adminUsers = [];
@@ -587,7 +588,7 @@ export async function pageAdmin(user) {
       .then(data => {
         // Filter and set user data for the table based on admin privileges and company
         //console.log(data, 'admin', adminCompanyName);
-        table.setData((companyAdmin || basicAdmin) ? data.filter(user => user.companyID && user.companyID != ' ' && user.companyID != '' && user.companyID.some(x => adminCompanyName.includes(x))) : data);
+        table.setData((companyAdmin || basicAdmin || superAdmin) ? data.filter(user => user.companyID && user.companyID != ' ' && user.companyID != '' && user.companyID.some(x => adminCompanyName.includes(x))) : data);
       })
       .catch(err => {
         console.log('error fetching users', err);
@@ -1782,7 +1783,7 @@ export async function pageAdmin(user) {
     } else if (picSource === 'webcam') {
       canvas = cropperCreate.getCroppedCanvas();
     }
-    console.log('>>>>2 ', picSource, ' - ', (picSource === 'webcam'));
+
     const metadata = {
       contentType: 'image/png'
     };
