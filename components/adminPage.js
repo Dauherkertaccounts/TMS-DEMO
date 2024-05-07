@@ -1771,7 +1771,11 @@ export async function pageAdmin(user) {
   }
 
   function userUploadImage(userID) {
-    const canvas = upload_cropper.getCroppedCanvas();
+    if (upload_cropper) {
+      const canvas = upload_cropper.getCroppedCanvas();
+    } else if (cropperCreate) {
+      const canvas = cropperCreate.getCroppedCanvas();
+    }
     const metadata = {
       contentType: 'image/png'
     };
