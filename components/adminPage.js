@@ -1014,7 +1014,7 @@ export async function pageAdmin(user) {
           const canvas = cropperCreate.getCroppedCanvas();
           const dataURL = canvas.toDataURL();
           // Set the data URL as the value of the hidden input field
-          document.getElementById('upload_picture').value = dataURL;
+          document.getElementById('hidden_input').value = dataURL;
         },
       });
       // Turn off the camera
