@@ -1781,6 +1781,7 @@ export async function pageAdmin(user) {
     } else if (picSource == 'webcam') {
       const canvas = cropperCreate.getCroppedCanvas();
     }
+    console.log('>>>>2 ', picSource);
     const metadata = {
       contentType: 'image/png'
     };
