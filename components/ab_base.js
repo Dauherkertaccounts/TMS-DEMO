@@ -140,9 +140,9 @@ async function populateForms(user) {
       if (adminInfo.super_admin || adminInfo.company_admin || adminInfo.basic_admin) {
         if (navAdminDropdown) { navAdminDropdown.style.display = 'flex'; }
         if (adminInfo.super_admin) {
-          if (navAdminDropdownCompanyLink) { navAdminDropdown.style.display = 'block'; }
+          if (navAdminDropdownCompanyLink) { navAdminDropdownCompanyLink.style.display = 'block'; }
         } else {
-          if (navAdminDropdownCompanyLink) { navAdminDropdown.style.display = 'none'; }
+          if (navAdminDropdownCompanyLink) { navAdminDropdownCompanyLink.style.display = 'none'; }
         }
       } else {
         if (window.location.pathname.includes('users-table') || window.location.pathname.includes('companies-table')) {
