@@ -143,10 +143,12 @@ async function populateForms(user) {
           if (navAdminDropdownCompanyLink) { navAdminDropdownCompanyLink.style.display = 'block'; }
         } else {
           if (navAdminDropdownCompanyLink) { navAdminDropdownCompanyLink.style.display = 'none'; }
+          if (window.location.pathname.includes('companies-table')) {
+            location.replace(urlLang + '/account');
+          }
         }
       } else {
         if (window.location.pathname.includes('users-table') || window.location.pathname.includes('companies-table')) {
-          //TODO remove comment
           location.replace(urlLang + '/account');
         }
         if (navAdminDropdown) { navAdminDropdown.style.display = 'none'; }
