@@ -124,6 +124,7 @@ async function populateForms(user) {
   let adminInfo = await getAdminInfo(user);
   //const accountType_button = document.getElementById('account_user_profile');
   let navAdminDropdown = document.getElementById('admin_drop');
+  let navAdminDropdownCompanyLink = document.getElementById('companies_table_link');
   let storedLang = localStorage.getItem('language');
   let urlLang = '/en';
   if (storedLang && storedLang === 'de') {
@@ -138,6 +139,11 @@ async function populateForms(user) {
     if (adminInfo) {
       if (adminInfo.super_admin || adminInfo.company_admin || adminInfo.basic_admin) {
         if (navAdminDropdown) { navAdminDropdown.style.display = 'flex'; }
+        if (adminInfo.super_admin) {
+          if (navAdminDropdownCompanyLink) { navAdminDropdown.style.display = 'block'; }
+        } else {
+          if (navAdminDropdownCompanyLink) { navAdminDropdown.style.display = 'none'; }
+        }
       } else {
         if (window.location.pathname.includes('users-table') || window.location.pathname.includes('companies-table')) {
           //TODO remove comment
