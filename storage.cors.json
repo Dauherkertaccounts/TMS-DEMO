@@ -1,6 +1,6 @@
 [
   {
-    "origin": ["https://bho-tms-2024.webflow.io/"],
+    "origin": ["https://credentials.badhomburg-open.com/"],
     "method": ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
     "maxAgeSeconds": 3600,
     "responseHeader": ["Content-Type", "Content-Length", "Content-Encoding", "Content-Disposition", "Access-Control-Allow-Origin"]
