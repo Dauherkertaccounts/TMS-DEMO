@@ -113,8 +113,8 @@ export async function pageAdmin(user) {
     user_dates.style.display = 'none';
     document.getElementById('company-filter').parentElement.style.display = 'none';
     document.getElementById('type-filter').parentElement.style.display = 'none';
-    //document.getElementById('new_user_company').parentElement.style.display = 'none';
-    document.getElementById('new_user_company').parentElement.classList.add('input-field-hidden');
+    document.getElementById('new_user_company').parentElement.style.display = 'none';
+      //document.getElementById('new_user_company').parentElement.classList.add('input-field-hidden');
     document.getElementById('create_user_zones').style.display = 'none';
     document.getElementById('update_user_zones').style.display = 'none';
     document.getElementById('accepted_option').style.display = 'none';
