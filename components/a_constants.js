@@ -112,7 +112,7 @@
 
  /* ASSETS - Images - used in email templates */
  export const firstImageURL = "https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/663432fe5b6269a018cffed2_BHO-2024_Combined_Logo_RGB_Solarwatt_500%201.png";
- export const firstImageStyle = "max-height: 100px;width: 90%;";
+ export const firstImageStyle = "max-height: 100px;width: 90%;max-width: 90%;";
 
  export const secondImageURL = "https://uploads-ssl.webflow.com/649471d58c4292fde7b0bd0a/65ce506132780f0150f70fc7_WTA.png";
  export const secondImageStyle = "max-height: 100px;width: 70%;max-width: 150px;";
