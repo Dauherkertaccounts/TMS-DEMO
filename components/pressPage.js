@@ -338,6 +338,7 @@ export async function pagePress() {
       if (!this.value) {
         this.style.border = "2px solid red";
       } else {
+        this.style.border = "none";
         this.style.borderBottom = "1px solid #2B2B2B";
       }
     });
