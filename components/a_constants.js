@@ -73,7 +73,8 @@
    URLDIVERSECONFIRMEMAIL_EN: 'form_en_diverse_confirmation_form_to_admin.html',
    URLDIVERSECONFIRMEMAIL_DE: 'form_de_diverse_confirmation_email_to_admin.html',
    
-   URLMRMSAPPLICATIONRECEIVED_EN: 'press_en_mr_ms_application_received.html',
+   URLMRAPPLICATIONRECEIVED_EN: 'press_en_mr_application_received.html',
+   URLMSAPPLICATIONRECEIVED_EN: 'press_en_ms_application_received.html',
    URLMRAPPLICATIONRECEIVED_DE: 'press_de_mr_application_received.html',
    URLMSAPPLICATIONRECEIVED_DE: 'press_de_ms_application_received.html',
    URLDIVERSEAPPLICATIONRECEIVED_EN: 'press_en_diverse_application_received.html',
