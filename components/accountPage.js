@@ -81,6 +81,8 @@ function updateUserPassword(user, newPassword) {
 
       if (errorCode == 'auth/requires-recent-login') {
         toastr.error('Please Sign Out and Sign back in to update your password.');
+      } else if (errorCode == 'auth/weak-password') {
+        toastr.error('The password must contain at least 6 characters.');
       } else {
         toastr.error('There was a problem updating the password');
         console.error('An error occurred while deleting the user account', error);
@@ -306,6 +308,9 @@ export async function pageAccount(user) {
 
         // Promesas de actualización
         var promises = [];
+
+        console.log('firstname ', userInfo.user_firstname !== newUsername, ' userInfo ', userInfo.user_firstname, ' new ', newUsername);
+        console.log('lastname ', userInfo.user_lastname !== newUserLastname, ' userInfo ', userInfo.user_lastname, ' new ', newUserLastname);
 
         if (userInfo.user_firstname !== newUsername || userInfo.user_lastname !== newUserLastname) {
           updateUsername(user, newUsername, newUserLastname, newUserAddress);
