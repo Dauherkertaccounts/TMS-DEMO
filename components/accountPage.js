@@ -309,10 +309,10 @@ export async function pageAccount(user) {
         // Promesas de actualización
         var promises = [];
 
-        console.log('firstname ', userInfo.user_firstname !== newUsername, ' userInfo ', userInfo.user_firstname, ' new ', newUsername);
-        console.log('lastname ', userInfo.user_lastname !== newUserLastname, ' userInfo ', userInfo.user_lastname, ' new ', newUserLastname);
+        console.log('firstname ', userInfo.user_firstname !== newUsername.value, ' userInfo ', userInfo.user_firstname, ' new ', newUsername.value);
+        console.log('lastname ', userInfo.user_lastname !== newUserLastname.value, ' userInfo ', userInfo.user_lastname, ' new ', newUserLastname.value);
 
-        if (userInfo.user_firstname !== newUsername || userInfo.user_lastname !== newUserLastname) {
+        if (userInfo.user_firstname !== newUsername.value || userInfo.user_lastname !== newUserLastname.value) {
           updateUsername(user, newUsername, newUserLastname, newUserAddress);
         }
 
