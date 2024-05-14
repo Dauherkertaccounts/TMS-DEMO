@@ -75,7 +75,16 @@ function updateUserPassword(user, newPassword) {
       toastr.success('Password has been successfully updated');
     })
     .catch((error) => {
-      toastr.error('There was a problem updating the password', error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('errorCode: errorMessage', errorCode, ': ', errorMessage);
+
+      if (errorCode == 'auth/requires-recent-login') {
+        toastr.error('Please Sign Out and Sign back in to update your password.');
+      } else {
+        toastr.error('There was a problem updating the password');
+        console.error('An error occurred while deleting the user account', error);
+      }
     });
 }
   
@@ -298,7 +307,9 @@ export async function pageAccount(user) {
         // Promesas de actualización
         var promises = [];
 
-        updateUsername(user, newUsername, newUserLastname, newUserAddress);
+        if (userInfo.user_firstname !== newUsername || userInfo.user_lastname !== newUserLastname) {
+          updateUsername(user, newUsername, newUserLastname, newUserAddress);
+        }
 
         // Esperar a que todas las promesas se resuelvan
         Promise.all(promises)
