@@ -93,6 +93,9 @@ export async function pageAdmin(user) {
       option.prop("selected", true);
     }
     $("#userZones").trigger("change");
+
+    let userFirstCompany = row.querySelector('div[tabulator-field="user_firstcompany"]').textContent;
+    document.getElementById('user_specific_company').innerText = changeCompanyNameToIDFromCompanyId(userFirstCompany);
   })
 
 
@@ -280,7 +283,6 @@ export async function pageAdmin(user) {
         {title:"Basic Admin", field:"basic_admin", sorter:"string", width:0, cssClass:"hidden-column"},
         {title:"companyID", field:"companyID", sorter:"string", width:0, cssClass:"hidden-column"},
         {title:"First company", field:"user_firstcompany", sorter:"string", width:0, cssClass:"hidden-column"},
-        {title:"First company name", field:"user_firstcompany_name", sorter:"string", width:0, cssClass:"hidden-column"},
         {title:"User Zones", field:"user_zones", sorter:"string", width:0, cssClass:"hidden-column"},
         {title:"User Start Date", field:"user_start_date", sorter:"string", width:0, cssClass:"hidden-column"},
         {title:"User End Date", field:"user_end_date", sorter:"string", width:0, cssClass:"hidden-column"},
@@ -589,7 +591,6 @@ export async function pageAdmin(user) {
                 companyID: [user.user_company],
                 user_company: user.company,
                 user_firstcompany: user.user_firstcompany,
-                user_firstcompany_name: changeCompanyNameToIDFromCompanyId(user.user_firstcompany),
                 user_type: user.user_type,
                 account_type: user.account_type,
                 user_zones: user.user_zones,
