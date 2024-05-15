@@ -93,9 +93,6 @@ export async function pageAdmin(user) {
       option.prop("selected", true);
     }
     $("#userZones").trigger("change");
-
-    //let userFirstCompany = row.querySelector('div[tabulator-field="user_firstcompany"]').textContent;
-    //document.getElementById('user_specific_company').innerText = await changeCompanyNameToIDFromCompanyId(userFirstCompany);
   })
 
 
@@ -1240,7 +1237,7 @@ export async function pageAdmin(user) {
       if (adminInfo.company_admin || adminInfo.super_admin) {
 
         let firstcompany;
-        console.log('current first >>> ', userRef.user_firstcompany);
+        console.log('current first >>> ', document.getElementById('user_firstcompany_id').innerText);
         console.log('new companies >>> ', selectedUserCompaniesString);
 
         setDoc(userRef, {
