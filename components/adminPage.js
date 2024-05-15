@@ -95,7 +95,9 @@ export async function pageAdmin(user) {
     $("#userZones").trigger("change");
 
     let userFirstCompany = row.querySelector('div[tabulator-field="user_firstcompany"]').textContent;
-    document.getElementById('user_specific_company').innerText = changeCompanyNameToIDFromCompanyId(userFirstCompany);
+    document.getElementById('user_specific_company').innerText = changeCompanyNameToIDFromCompanyId(userFirstCompany).then(userCompanyName => {
+      userCompanyName
+    });
   })
 
 
