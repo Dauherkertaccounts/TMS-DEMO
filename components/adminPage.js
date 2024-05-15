@@ -589,7 +589,6 @@ export async function pageAdmin(user) {
                 companyID: [user.user_company],
                 user_company: user.company,
                 user_firstcompany: user.user_firstcompany,
-                user_firstcompany_name: changeCompanyNameToIDFromCompanyId(user.user_firstcompany),
                 user_type: user.user_type,
                 account_type: user.account_type,
                 user_zones: user.user_zones,
@@ -607,6 +606,12 @@ export async function pageAdmin(user) {
                 zip: user.user_zip_code,
                 country: user.user_country,
                 phone: user.user_phone});
+            }
+          }));
+          promises.push(changeCompanyNameToIDFromCompanyId(user.user_firstcompany).then(userCompanyName => {
+            if (!user.user_deleted) { 
+              data.push({
+                user_firstcompany_name: userCompanyName});
             }
           }));
         });
