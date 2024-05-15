@@ -1720,6 +1720,8 @@ export async function pageAdmin(user) {
 
     let selectedNewUserCompanies = $('#new_user_company').val();
     newUserCompaniesString = selectedNewUserCompanies.join(', ');
+    let newUserFirstCompanyString = newUserCompaniesString.split(',');
+    newUserFirstCompanyString = newUserFirstCompanyString[0];
     console.log('company(s) selected', newUserCompaniesString);
 
     let storedLang = localStorage.getItem("language");
@@ -1733,6 +1735,7 @@ export async function pageAdmin(user) {
         user_fullname: escapeHtml(new_user_fullname),
         account_type: new_user_account_type.value,
         user_company: newUserCompaniesString,
+        user_firstcompany: newUserFirstCompanyString,
         user_type: new_user_profile.value,
         user_zones: selectedCreateUserZonesString,
         user_status: 'Pending',
