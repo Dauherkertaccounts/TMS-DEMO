@@ -52,6 +52,7 @@ async function changeCompanyNameToID(user) {
 
 async function changeCompanyNameToIDFromCompanyId(companyId) {
   // Comprobar si companyId existe y no está vacío
+  console.log('1 ', companyId)
   if (companyId === "") {
     return ""; // Puedes devolver cualquier valor predeterminado que necesites aquí
   }
@@ -66,7 +67,9 @@ async function changeCompanyNameToIDFromCompanyId(companyId) {
       companyNames.push(company.data().company_name);
     }
   }
+  console.log('2 ', companyNames[0])
   if (companyNames.length > 0) {
+    console.log('3 ', companyNames[0])
     return companyNames[0];
   } else {
     return "";
