@@ -50,6 +50,29 @@ async function changeCompanyNameToID(user) {
   }
 }
 
+async function changeCompanyNameToIDFromCompanyId(companyId) {
+  // Comprobar si companyId existe y no está vacío
+  if (companyId === "") {
+    return ""; // Puedes devolver cualquier valor predeterminado que necesites aquí
+  }
+  
+  //console.log("user:", user, "user.user_company:", user.user_company);
+
+  const companiesRef = collection(db, "companies");
+  const companiesSnapshot = await getDocs(companiesRef);
+  let companyNames = [];
+  for (const company of companiesSnapshot.docs) {
+    if (companyId.includes(company.id)) {
+      companyNames.push(company.data().company_name);
+    }
+  }
+  if (companyNames.length > 0) {
+    return companyNames[0];
+  } else {
+    return "";
+  }
+}
+
 export async function pageAdmin(user) {
 
   $(document).on( 'click' , '#open_modal_btn' , function() {
@@ -566,7 +589,7 @@ export async function pageAdmin(user) {
                 companyID: [user.user_company],
                 user_company: user.company,
                 user_firstcompany: user.user_firstcompany,
-                user_firstcompany_name: changeCompanyNameToID(user.user_firstcompany),
+                user_firstcompany_name: changeCompanyNameToIDFromCompanyId(user.user_firstcompany),
                 user_type: user.user_type,
                 account_type: user.account_type,
                 user_zones: user.user_zones,
