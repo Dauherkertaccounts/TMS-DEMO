@@ -62,7 +62,7 @@ async function changeCompanyNameToIDFromCompanyId(companyId) {
   const companiesSnapshot = await getDocs(companiesRef);
   let companyNames = [];
   for (const company of companiesSnapshot.docs) {
-    if (companyId.includes(company.id)) {
+    if (companyId === company.id) {
       companyNames.push(company.data().company_name);
     }
   }
