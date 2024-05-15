@@ -1237,11 +1237,21 @@ export async function pageAdmin(user) {
       if (adminInfo.company_admin || adminInfo.super_admin) {
 
         let firstcompany;
-        console.log('current first >>> ', document.getElementById('user_firstcompany_id').innerText);
+        let currentFirstCompany = document.getElementById('user_firstcompany_id').innerText;
+        console.log('current first >>> ', currentFirstCompany);
         console.log('new companies >>> ', selectedUserCompaniesString);
+
+        if (selectedUserCompaniesString === '') {
+          firstcompany = currentFirstCompany;
+        } else if (selectedUserCompaniesString.includes(currentFirstCompany)) {
+          firstcompany = currentFirstCompany;
+        } else {
+          firstcompany = selectedUserCompaniesString.slice(0, str.indexOf(','));
+        }
 
         setDoc(userRef, {
           user_company: selectedUserCompaniesString,
+          user_firstcompany: firstcompany,
           user_type: userTypeUpdate.value,
           user_zones: selectedUserZonesString,
           supplier_visit_dates: escapeHtml(updated_dates.value),
