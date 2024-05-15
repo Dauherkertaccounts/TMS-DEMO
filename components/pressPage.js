@@ -70,6 +70,7 @@ function pressFormSubmit(e) {
       press_card_number: escapeHtml(press_card_number.value),
       press_form_user: true,
       user_company: PRESSCOMPANYID,
+      user_firstcompany: PRESSCOMPANYID,
       account_type: 'Press',
       user_type: '',
       user_zones: '',

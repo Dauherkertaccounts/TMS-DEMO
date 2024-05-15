@@ -1205,6 +1205,10 @@ export async function pageAdmin(user) {
 
       if (adminInfo.company_admin || adminInfo.super_admin) {
 
+        let firstcompany;
+        console.log('current first >>> ', userRef.user_firstcompany);
+        console.log('new companies >>> ', selectedUserCompaniesString);
+
         setDoc(userRef, {
           user_company: selectedUserCompaniesString,
           user_type: userTypeUpdate.value,
