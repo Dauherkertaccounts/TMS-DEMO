@@ -164,6 +164,7 @@ async function setDefaultFields(user) {
   let urlCompany = new URL(window.location.href);
   if (urlCompany.searchParams.has('company')){
     userDefaultValues.user_company = currentUrl.searchParams.get('company');
+    userDefaultValues.user_firstcompany = currentUrl.searchParams.get('company');
   }
 
 
@@ -344,6 +345,7 @@ if (select_company) {
       //newUserCompaniesString = selectedNewUserCompanies.join(', ');
       newUserCompaniesString = selectedNewUserCompanies;
       userDefaultValues.user_company = newUserCompaniesString;
+      userDefaultValues.user_firstcompany = newUserCompaniesString;
       console.log("Company(s) ID ->> ", newUserCompaniesString);
     });
   }

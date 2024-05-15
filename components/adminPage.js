@@ -52,7 +52,6 @@ async function changeCompanyNameToID(user) {
 
 async function changeCompanyNameToIDFromCompanyId(companyId) {
   // Comprobar si companyId existe y no está vacío
-  console.log('1 ', companyId)
   if (companyId === "") {
     return ""; // Puedes devolver cualquier valor predeterminado que necesites aquí
   }
@@ -67,9 +66,7 @@ async function changeCompanyNameToIDFromCompanyId(companyId) {
       companyNames.push(company.data().company_name);
     }
   }
-  console.log('2 ', companyNames[0])
   if (companyNames.length > 0) {
-    console.log('3 ', companyNames[0])
     return companyNames[0];
   } else {
     return "";
@@ -1241,8 +1238,6 @@ export async function pageAdmin(user) {
 
         let firstcompany;
         let currentFirstCompany = document.getElementById('user_firstcompany_id').innerText;
-        console.log('current first >>> ', currentFirstCompany);
-        console.log('new companies >>> ', selectedUserCompaniesString);
 
         if (selectedUserCompaniesString === '') {
           firstcompany = currentFirstCompany;
@@ -1251,7 +1246,6 @@ export async function pageAdmin(user) {
         } else {
           firstcompany = selectedUserCompaniesString.split(',');
           firstcompany = firstcompany[0];
-          //firstcompany = selectedUserCompaniesString.slice(0, (selectedUserCompaniesString.indexOf(',')+1));
         }
 
         setDoc(userRef, {
