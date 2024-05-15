@@ -1246,7 +1246,7 @@ export async function pageAdmin(user) {
         } else if (selectedUserCompaniesString.includes(currentFirstCompany)) {
           firstcompany = currentFirstCompany;
         } else {
-          firstcompany = selectedUserCompaniesString.slice(0, str.indexOf(','));
+          firstcompany = selectedUserCompaniesString.slice(0, selectedUserCompaniesString.indexOf(','));
         }
 
         setDoc(userRef, {
