@@ -25,8 +25,8 @@
  export const URLSIGNUP = '/signup' + PSNAME;
 
  /* Admin create user default dates */
- export const SUPPLIERSTARTDATE = '06-18-2024';
- export const SUPPLIERENDDATE = '06-28-2024';
+ export const SUPPLIERSTARTDATE = '06-18-2025';
+ export const SUPPLIERENDDATE = '06-28-2025';
 
  /**/
  export const DEFAULTCOMPANYID = 'vbIh3G2eLIOVEvXmKDKf';
@@ -114,7 +114,7 @@
   // export const PDF_SC_2_EN = 'https://assets.website-files.com/63388d26d610dba24046d36b/641465fb036e3514624b5d8a_PTGP230317_Kurzhinweise%20Arbeitsschutz.pdf';
 
  /* ASSETS - Images - used in email templates */
- export const firstImageURL = "https://uploads-ssl.webflow.com/66232f41bf2efc8ff7b59f93/663432fe5b6269a018cffed2_BHO-2024_Combined_Logo_RGB_Solarwatt_500%201.png";
+ export const firstImageURL = "https://cdn.prod.website-files.com/66232f41bf2efc8ff7b59f93/6824ba9fa3b9db1b25dc2c83_BHO-2024_Combined_Logo_RGB_Solarwatt_500_WTA-REFRESH.png";
  export const firstImageStyle = "max-height: 100px;width: 90%;max-width: 90%;";
 
  export const secondImageURL = "https://uploads-ssl.webflow.com/649471d58c4292fde7b0bd0a/65ce506132780f0150f70fc7_WTA.png";
@@ -132,7 +132,7 @@
  /*
  [
   {
-    "origin": ["https://bho-tms-2024.webflow.io", "https://credentials.badhomburg-open.com"],
+    "origin": ["https://bho-tms-2025.webflow.io", "https://credentials.badhomburg-open.com"],
     "responseHeader": ["Content-Type", "Content-Length", "Content-Encoding", "Content-Disposition", "Access-Control-Allow-Origin"],
     "method": ["GET", "PUT", "POST", "DELETE"],
     "maxAgeSeconds": 3600,
