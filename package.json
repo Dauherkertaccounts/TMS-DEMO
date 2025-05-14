@@ -1,5 +1,5 @@
 {
-  "name": "main_tms",
+  "name": "bho_tms",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/dauHerkert/BHO-TMS.git"
+    "url": "git+https://github.com/dauHerkert/BHO-TMS.git"
   },
   "author": "",
   "license": "ISC",

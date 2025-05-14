@@ -3,13 +3,13 @@
  ====================================================================================================================================*/
 
  const PSNAME = '-bho'; // Project slug name
- export const DEVEMAIL = ['juan.torres@dauherkert.de', 'niklas.diet@dauherkert.de']; // Dev admin email ['juan.torres@dauherkert.de', 'niklas.diet@dauherkert.de']
+ export const DEVEMAIL = ['juan.torres@dauherkert.de']; // Dev admin email ['juan.torres@dauherkert.de']
 
  /* Authorized event dates */
  export const EVENTDATES = {
-  MINDATE_DAY: 19,
+  MINDATE_DAY: 18,
   MINDATE_MONTH: 6,
-  MAXDATE_DAY: 29,
+  MAXDATE_DAY: 28,
   MAXDATE_MONTH: 6
  }
  
@@ -25,12 +25,14 @@
  export const URLSIGNUP = '/signup' + PSNAME;
 
  /* Admin create user default dates */
- export const SUPPLIERSTARTDATE = '06-19-2024';
- export const SUPPLIERENDDATE = '06-29-2024';
+ export const SUPPLIERSTARTDATE = '06-18-2024';
+ export const SUPPLIERENDDATE = '06-28-2024';
 
  /**/
  export const DEFAULTCOMPANYID = 'vbIh3G2eLIOVEvXmKDKf';
  export const PRESSCOMPANYID = 'qYBqDBB1tSYRpPe0k2zI'; // vc5dzk77h7lqwrUQm9Ku
+ export const PRESSCOMPANYPROFILE = 'BgZRrHypn2UTbA8OPYPy'; // Pr2 - Press
+ export const PRESSCOMPANYZONES = 'Offices, Technician, Press'; // 'Offices, Technician, Press'
  
  /* URL Webflow Assets for Images and Icons */
  /* must be changed manually in each email template, where the respective asset is used */

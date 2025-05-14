@@ -50,6 +50,27 @@ async function changeCompanyNameToID(user) {
   }
 }
 
+async function changefirstCompanyNameToID(user) {
+  if (!user.user_firstcompany || user.user_firstcompany.trim() === "") {
+    console.log("User does not have a user_company");
+    return "No company"; // Puedes devolver cualquier valor predeterminado que necesites aquí
+  }
+
+  const companiesRef = collection(db, "companies");
+  const companiesSnapshot = await getDocs(companiesRef);
+  let companyNames = [];
+  for (const company of companiesSnapshot.docs) {
+    if (user.user_firstcompany.includes(company.id)) {
+      companyNames.push(company.data().company_name);
+    }
+  }
+  if (companyNames.length > 0) {
+    return companyNames.join(", ");
+  } else {
+    console.log("No company found with that ID");
+  }
+}
+
 async function changeCompanyNameToIDFromCompanyId(companyId) {
   // Comprobar si companyId existe y no está vacío
   if (companyId === "") {
@@ -102,7 +123,7 @@ export async function pageAdmin(user) {
   let userInfo = await getUserInfo(user);
   let adminInfo = await getAdminInfo(user);
   const userRef = doc(db, 'users', user.uid);
-  const companyNames = await changeCompanyNameToID(userInfo);
+  const companyNames = await changefirstCompanyNameToID(userInfo);
   userInfo.user_company_name = companyNames;
   
   if (userInfo.user_company_name == undefined) {
@@ -424,6 +445,58 @@ export async function pageAdmin(user) {
       ],
     });
 
+    /*================================================================================================
+    * This code snippet remembers the current filters and pagenumber the user is on in session storage
+    * and will reapply those settings on pageload. This is a workaround to prevent users from clicking
+    * to the same page over and over when editing users.
+    * 2025-02-28: tf
+    ================================================================================================*/
+    const STORE_SESSION_ADMIN_TABLE_FILTERS_KEY = 'adminTableHeaderFilters';
+    const STORE_SESSION_ADMIN_TABLE_PAGE_NUMBER = 'adminTablePageno';
+    let firstTableInitDone = false;
+    
+    table.on("dataFiltering", function(filters){
+      if(firstTableInitDone) {
+        let currentFilters = {
+            company: table.getColumn("company").getHeaderFilterValue(),
+            status: table.getColumn("status").getHeaderFilterValue(),
+            account_type: table.getColumn("account_type").getHeaderFilterValue(),
+        }
+        console.log('Store to session: Filters', currentFilters);
+        sessionStorage.setItem(STORE_SESSION_ADMIN_TABLE_FILTERS_KEY, JSON.stringify(currentFilters));
+        table.setPage(1); // When settings are changed always start over at page 1
+      }
+    });
+    
+    table.on("pageLoaded", function(pageno){
+      if(firstTableInitDone) {
+        console.log('Store to session: Page');
+        sessionStorage.setItem(STORE_SESSION_ADMIN_TABLE_PAGE_NUMBER, pageno);
+      }
+    });
+    
+    table.on("tableBuilt", function() {
+      table.on("dataProcessed", function(){
+        let storedFilters = JSON.parse(sessionStorage.getItem(STORE_SESSION_ADMIN_TABLE_FILTERS_KEY) || '{}');
+        let pageno = sessionStorage.getItem(STORE_SESSION_ADMIN_TABLE_PAGE_NUMBER) || 1;
+        
+        console.log('Restore table setttings from session', storedFilters, pageno);
+        
+        table.getColumn("company").setHeaderFilterValue(storedFilters.company || null),
+        table.getColumn("status").setHeaderFilterValue(storedFilters.status || null),
+        table.getColumn("account_type").setHeaderFilterValue(storedFilters.account_type || null),
+        
+        document.getElementById("company-filter").value = table.getColumn("company").getHeaderFilterValue() || 'clear';
+        document.getElementById("status-filter").value = table.getColumn("status").getHeaderFilterValue() || 'clear';
+        document.getElementById("type-filter").value = table.getColumn("account_type").getHeaderFilterValue() || 'clear';
+
+        table.setPage(pageno);
+        
+        firstTableInitDone = true;
+      });
+    });
+
+    
 /*=================================================================================================================================================================
 * This code snippet sets up event listeners and filters for the users table. It fetches company data from Firestore and populates the company filter dropdowns.
 * The code enables filtering of the table based on selected values in the company, status, and type filters. It also includes pagination customization and a
