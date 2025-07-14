@@ -16,7 +16,7 @@
  /* Environment Domain */
  /* needs to be changed manually on register_de_email.html & register_en_email.html & storage.cors.json */
  /* TODO: Check if it can be centralized also in the above mentioned pages. */
- export const URLENV = 'https://credentials.badhomburg-open.com/';
+ export const URLENV = 'https://tms-demo-2025.webflow.io/';
  
  /* URL Pages */
  export const URLACCOUNT = '/account';
@@ -132,7 +132,7 @@
  /*
  [
   {
-    "origin": ["https://bho-tms-2025.webflow.io", "https://credentials.badhomburg-open.com"],
+    "origin": ["https://tms-demo-2025.webflow.io/", "https://credentials.badhomburg-open.com"],
     "responseHeader": ["Content-Type", "Content-Length", "Content-Encoding", "Content-Disposition", "Access-Control-Allow-Origin"],
     "method": ["GET", "PUT", "POST", "DELETE"],
     "maxAgeSeconds": 3600,
